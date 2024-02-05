@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Rectangle>
+
+<h2>List of Rectangles</h2>
+
+<a asp-action="Add" class="btn btn-primary">Add New Rectangle</a>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var rectangle in Model)
+        {
+            <li>
+                <a asp-action="Details" asp-route-id="@rectangle.Id">
+                    Rectangle: @rectangle.Width @rectangle.WidthUnit x @rectangle.Height @rectangle.HeightUnit
+                </a>
+                <a asp-action="Edit" asp-route-id="@rectangle.Id">Edit</a> |
+                <form asp-action="Delete" method="post" inline>
+                    <input type="hidden" name="id" value="@rectangle.Id" />
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No rectangles have been added yet.</p>
+}

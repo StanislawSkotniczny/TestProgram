@@ -1,0 +1,20 @@
+﻿@model testProstokayt.Models.Rectangle
+
+<h2>Edit Rectangle</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input asp-for="Width" type="number" required />
+    <select asp-for="WidthUnit">
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+        <option value="m">m</option>
+    </select>
+    <input asp-for="Height" type="number" required />
+    <select asp-for="HeightUnit">
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+        <option value="m">m</option>
+    </select>
+    <button type="submit">Update</button>
+</form>
